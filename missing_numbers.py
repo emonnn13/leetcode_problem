@@ -1,3 +1,5 @@
+#268-Missing Number
+
 # https://leetcode.com/problems/missing-number/submissions/
 
 """
@@ -17,9 +19,9 @@ Output: 8
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
+        #Sortin the array
         i = 0
         while i < len(nums):
-        # for i in range (len(nums)):
             correct = nums[i]         
             if nums[i] < len(nums) and nums[i] != nums[correct]:
                 nums[i] , nums[correct] = nums[correct], nums[i]
@@ -28,8 +30,11 @@ class Solution:
         else:
             i+=1
         
+        #Checking the missing number with the index value
         for j in range(len(nums)):
             if nums[j] != j:
                 return j
         
+        #If all the numbers are correct then return the last number
         return len(nums)
+
